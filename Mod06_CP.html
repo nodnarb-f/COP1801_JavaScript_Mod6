@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Writing Functions to Get Values from a Form</title>
+
+    <style media="screen">
+      #list td, #list th {
+          border: 1px solid #ddd;
+          padding: 8px;
+      }
+
+      #list tr:nth-child(even){background-color: lightblue;}
+
+      #list {
+        border-collapse: collapse;
+        width: 100%;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: darkblue;
+        color: white;
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <form id="name_address">
+      First Name: <input type="text" name="fname" id="fname"><br><br>
+      Last Name: <input type="text" name="lname" id="lname"><br><br>
+      Address: <input type="text" name="address" id="address"><br><br>
+      City: <input type="text" name="city" id="city"><br><br>
+      State: <input type="text" name="state" id="state"><br><br>
+
+    </form>
+
+    <button onclick="getInfo()">Get form data</button>
+
+    <p id="formData"></p>
+
+    <script type="text/javascript">
+      function getInfo() {
+        var x = document.getElementById("name_address");
+        var txt = "";
+
+        for (var i = 0; i < x.length; i++) {
+          txt = txt + x.elements[i].value + "<br>";
+        }
+        document.getElementById("firstLast").innerHTML = x.elements[0].value + " " + x.elements[1].value;
+        document.getElementById("addr").innerHTML = x.elements[2].value;
+        document.getElementById("cty").innerHTML = x.elements[3].value;
+        document.getElementById("st").innerHTML = x.elements[4].value;
+        console.log(txt);
+
+        x.elements[0].onmouseover=function(){event.target.style.color = "yellow"};
+
+
+        firstLast.addEventListener("mouseover", function(event) {
+          event.target.style.color = "yellow";
+          event.target.style.fontWeight = "bold";
+          event.target.style.fontSize = "32pt";
+
+          setTimeout(function() {
+            event.target.style.color = "";
+            event.target.style.fontWeight = "";
+            event.target.style.fontSize = "";
+          },10000);
+        },false);
+
+        addr.addEventListener("mouseover", function(event) {
+          event.target.style.color = "darkgreen";
+          event.target.style.fontWeight = "bold";
+          event.target.style.fontSize = "32pt";
+
+          setTimeout(function() {
+            event.target.style.color = "";
+            event.target.style.fontWeight = "";
+            event.target.style.fontSize = "";
+          },10000);
+        },false);
+
+        cty.addEventListener("mouseover", function(event) {
+          event.target.style.color = "purple";
+          event.target.style.fontWeight = "bold";
+          event.target.style.fontSize = "32pt";
+
+          setTimeout(function() {
+            event.target.style.color = "";
+            event.target.style.fontWeight = "";
+            event.target.style.fontSize = "";
+          },10000);
+        },false);
+
+        st.addEventListener("mouseover", function(event) {
+          event.target.style.color = "red";
+          event.target.style.fontWeight = "bold";
+          event.target.style.fontSize = "32pt";
+
+          setTimeout(function() {
+            event.target.style.color = "";
+            event.target.style.fontWeight = "";
+            event.target.style.fontSize = "";
+          },10000);
+        },false);
+      }
+    </script>
+
+    <table id="list">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+      <tr>
+        <td><p id="firstLast"></p></td>
+        <td><p id="addr"></p></td>
+        <td><p id="cty"></p></td>
+        <td><p id="st"></p></td>
+      </tr>
+    </table>
+
+
+
+  </body>
+</html>
